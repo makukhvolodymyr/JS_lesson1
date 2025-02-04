@@ -59,3 +59,11 @@ console.log(typeof a)
 console.log(typeof b)
 console.log(typeof c)
 
+// Додаткове для тих хто цікавився prompt`oм
+// - За допомогою 3х різних prompt() отримати 3 слова
+// які являються вашими Імям, По-Батькові та роками. та вивести в консоль
+
+let fName = prompt("What is your name?")
+let midName = prompt("What is your middle name?")
+let age = prompt("How old are you?")
+console.log(`I am ${fName} ${midName}. I am ${age} years old.`)
