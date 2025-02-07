@@ -46,52 +46,52 @@ let thirdBook = {
 
 let userArray
 userArray = [
-    user1 = {
+    {
         name: "Volodymyr",
         username: "makuhv",
         password: "okten"
     },
-    user2 = {
+    {
         name: "Oksana",
         username: "ksywa",
         password: "immortalwombat"
     },
-    user3 = {
+    {
         name: "Bohdan",
         username: "bodia91",
         password: "leopolis"
     },
-    user4 = {
+    {
         name: "Oleksii",
         username: "did",
         password: "ilovealya"
     },
-    user5 = {
+    {
         name: "Albina",
         username: "albi70",
         password: "ilovealya"
     },
-    user6 = {
+    {
         name: "Oleksandr",
         username: "brother",
         password: "fcker69"
     },
-    user7 = {
+    {
         name: "Andrew",
         username: "babilunga",
         password: "vau"
     },
-    user8 = {
+    {
         name: "Natalya",
         username: "natkanat",
         password: "guitar7"
     },
-    user9 = {
+    {
         name: "Ivan",
         username: "inzaghi",
         password: "forzajuve"
     },
-    user10 = {
+    {
         name: "Anhelina",
         username: "oshka",
         password: "blackberry"
@@ -119,9 +119,123 @@ let temperatureArray = [
 // - Є змінна х, якій ви надаєте довільне числове значення.
 // Якщо змінна x не дорівнює нулю, виведіть 'Вірно', інакше виведіть 'Невірно'.
 // Перевірте  скрипт при a, що дорівнює 1, 0, -3
-let x = prompt("Введіть довільне число") !=0 ? console.log("Yes"):console.log("No")
+let x = +prompt("Введіть довільне число") !==0 ? console.log("Yes"):console.log("No")
 
 // - Дано змінну time яка рівна числу від 0 до 59.
 // Потрібно написати код, який перевірить, до якої четверті години попадає число
 // (в першу, другу, третю или четверту частину години).
+let time = 0
+switch (time) {
+    case time>0 && time < 15 :
+        console.log('Число належить до першої чверті');
+        break;
+    case time < 30 :
+        console.log('Число належить до другої чверті');
+        break;
+    case time < 45 :
+        console.log('Число належить до третьої чверті');
+        break;
+    case time <= 59 :
+        console.log('Число належить до четвертої чверті');
+        break;
+    default: console.log('Число не входить до жодної чверті')
+}
 
+// - У змінній day дано якесь число від 1 до 31.
+// Потрібно визначити, у яку половину(декаду) місяця потрапляє це число (у першу, другу чи третю).
+let day = 13;
+if (day>=1 && day<11){
+    console.log('Число потрапляє у першу декаду місяця')
+}
+else if (day<21){
+    console.log('Число потрапляє у другу декаду місяця')
+}
+else if (day<31){
+    console.log('Число потрапляє у третю декаду місяця')
+}
+else console.log('Число не потрапляє у жодну декаду місяця')
+
+    // - Скласти розклад на тиждень за домопоги switch.
+    // Користувач вводить порядковий номер дня тижня і на екрані відображається інфа
+    // що заплановано на цей день (можна замість плану на день, назву дня англійською).
+
+let weekDay = prompt('Введіть день тижня')
+switch (weekDay) {
+    case 'Понеділок':
+        console.log('Monday');
+        break;
+    case 'Вівторок':
+        console.log('Tuesday');
+        break;
+    case 'Середа':
+        console.log('Wednesday');
+        break;
+    case 'Четвер':
+        console.log('Thursday');
+        break;
+    case "П'ятниця":
+        console.log('Friday');
+        break;
+    case 'Субота':
+        console.log('Saturday');
+        break;
+    case 'Неділя':
+        console.log('Sunday');
+        break;
+    default:
+        console.log('Це не день тижня')
+}
+
+// - Користувач вводить або має два числа.
+//     Потрібно знайти та вивести максимальне число з тих двох .
+//     Також потрібно врахувати коли введені рівні числа.
+
+let number1 = +prompt("Введіть перше число")
+let number2 = +prompt("Введіть друге число")
+if (number1<number2){
+    console.log("Більшим є число " + number2)
+}
+else if (number1>number2){
+    console.log("Більшим є число " + number1)
+}
+else console.log("Числа рівні")
+
+//     - є змінна х, яка може прийняти будь-яке значення (стрінг, число, undefined, null  і тд включно).
+// Напишіть код який, буде присвоювати змінній х значення "default"  якщо ви намагаєтесь присвоїти в неї
+// falsy-значення (хибноподібні, тобто ті, які приводиться до false, а це 0 null undefined і тд).
+let y = 'oksana'
+if(!y){
+    y='default'
+}
+console.log(y)
+
+// - з файлу arrays.js (лежить в папці 2023 plan ) взяти масив coursesAndDurationArray.
+//     За допомоги іф перевірити кожен його елемент на тривалість навчання.
+//     У випадку якщо тривалість довша за 5 місяців вивести в консоль "Супер".
+
+let coursesAndDurationArray = [
+    {title: 'JavaScript Complex', monthDuration: 5},
+    {title: 'Java Complex', monthDuration: 6},
+    {title: 'Python Complex', monthDuration: 6},
+    {title: 'QA Complex', monthDuration: 4},
+    {title: 'FullStack', monthDuration: 7},
+    {title: 'Frontend', monthDuration: 4}
+];
+if (coursesAndDurationArray[0].monthDuration > 5){
+    console.log("Супер")
+}
+if (coursesAndDurationArray[1].monthDuration > 5){
+    console.log("Супер")
+}
+if (coursesAndDurationArray[2].monthDuration > 5){
+    console.log("Супер")
+}
+if (coursesAndDurationArray[3].monthDuration > 5){
+    console.log("Супер")
+}
+if (coursesAndDurationArray[4].monthDuration > 5){
+    console.log("Супер")
+}
+if (coursesAndDurationArray[5].monthDuration > 5){
+    console.log("Супер")
+}
