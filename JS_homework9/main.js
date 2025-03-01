@@ -65,5 +65,3 @@ for (const course of coursesAndDurationArray) {
     div.append(h1, p)
     document.body.appendChild(div);
 }
-
-
