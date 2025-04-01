@@ -1,109 +1,173 @@
-let pairs = [];
-
-let input = document.getElementById("input");
-let addButton = document.getElementById("add-button");
-let sortByNameButton = document.getElementById("name-sort");
-let sortByValueButton = document.getElementById("value-sort");
-let deleteButton = document.getElementById("delete-button");
-let textUl = document.getElementById("text-ul");
-
-// function showList(){
-//     for (arr of array){
+//
+// let pairs = [];
+//
+// let input = document.getElementById("input");
+// let addButton = document.getElementById("add-button");
+// let sortByNameButton = document.getElementById("name-sort");
+// let sortByValueButton = document.getElementById("value-sort");
+// let deleteButton = document.getElementById("delete-button");
+// let textUl = document.getElementById("text-ul");
+// let nameSortCounter, valueSortCounter ;
+//
+// let arrayUpdate = function (pairs) {
+//     while (textUl.firstChild) {
+//         textUl.removeChild(textUl.firstChild);
+//     }
+//     for (let pair of pairs){
 //         let li = document.createElement("li");
-//         li.innerText = arr;
+//         li.innerText = `${pair.name}=${pair.value}`;
 //         textUl.appendChild(li);
 //     }
 // }
-// window.onload = showList();
-
-addButton.onclick = function (ev){
-    let [name, value] = input.value.trim().split("=");
-    const pair = {
-        name:name.trim(),
-        value:value.trim()
-    };
-    pairs.push(pair);
-    while (textUl.firstChild) {
-        textUl.removeChild(textUl.firstChild);
-    }
-    for (p of pairs){
-        let li = document.createElement("li");
-        li.innerText = `${p.name}=${p.value}`;
-        textUl.appendChild(li);
-    }
-}
-
-
-sortByNameButton.onclick = function (ev) {
-    while (textUl.firstChild) {
-        textUl.removeChild(textUl.firstChild);
-    }
-
-    pairs.sort((a,b)=> a.name.localeCompare(b.name));
-
-    for (p of pairs){
-        let li = document.createElement("li");
-        li.innerText = `${p.name}=${p.value}`;
-        textUl.appendChild(li);
-    }
-}
-
-sortByValueButton.onclick = function (ev) {
-    while (textUl.firstChild) {
-        textUl.removeChild(textUl.firstChild);
-    }
-
-    pairs.sort((a,b)=> a.value.localeCompare(b.value));
-
-    for (p of pairs){
-        let li = document.createElement("li");
-        li.innerText = `${p.name}=${p.value}`;
-        textUl.appendChild(li);
-    }
-}
-
-deleteButton.onclick
-
-
-
-
-
-// for (const pair in pairs){
-//     textArea.innerText.concat(pair);
-// }
-// pairs.sort((a,b)=> a.value.localeCompare(b.value));
-// console.log(pairs);
-// pairs.sort((a,b)=> b.value.localeCompare(a.value));
-// console.log(pairs);
-// pairs.length = 0;
-
-
-// let array = [
-//     "First = Oksana",
-//     "Second = Volodymyr95",
-//     "Third = Leopolis92  "
-// ];
 //
-// let addButton = document.getElementById("add-button");
-// let input = document.getElementById("input");
-// let ul = document.getElementById("text-ul");
+// addButton.onclick = function (ev) {
+//     let inputData = input.value.trim(); // Отримуємо введене значення і обрізаємо зайві пробіли
 //
-// if (addButton && input && ul) {
-//     addButton.onclick = function(ev) {
-//         // Отримуємо значення з input
-//         let inputData = input.value.trim(); // Використовуємо trim(), щоб прибрати зайві пробіли
+//     // Знайдемо позицію знака "=" у введеному рядку
+//     let equalsIndex = inputData.indexOf("=");
 //
-//         // Якщо поле не порожнє
-//         if (inputData !== "") {
-//             let li = document.createElement("li");
-//             li.innerText = inputData; // Присвоюємо значення введене користувачем
-//             ul.appendChild(li); // Додаємо новий елемент в список
-//             input.value = ""; // Очищаємо поле вводу після додавання
+//     // Перевіримо, чи є знак "=" і чи він не на початку чи в кінці рядка
+//     if (equalsIndex > 0 && equalsIndex < inputData.length - 1) {
+//         let name = inputData.slice(0, equalsIndex).trim(); // Ім'я до знака "="
+//         let value = inputData.slice(equalsIndex + 1).trim(); // Значення після знака "="
+//
+//         // Перевірка на те, чи обидві частини складаються тільки з букв та цифр
+//         if (/^[a-zA-Z0-9]+$/.test(name) && /^[a-zA-Z0-9]+$/.test(value)) {
+//             const inputPair = {
+//                 name: name,
+//                 value: value
+//             };
+//             pairs.push(inputPair); // Додаємо пару до масиву
+//             arrayUpdate(pairs); // Оновлюємо список
+//             input.value = ""; // Очищаємо поле вводу
+//             nameSortCounter = 1;
+//             valueSortCounter = 1;
 //         } else {
-//             console.log("Поле не може бути порожнім");
+//             alert("Ім'я та значення повинні містити лише букви та цифри!");
+//             input.value = "";
 //         }
-//     };
-// } else {
-//     console.log("Не знайдені необхідні елементи DOM!");
+//     } else {
+//         alert("Невірний формат! Введіть у форматі: Ім'я = Значення");
+//         input.value = "";
+//     }
 // }
-// };
+//
+// sortByNameButton.onclick = function (ev) {
+//     if (!nameSortCounter) {
+//         alert("Введіть значення");
+//     } else {
+//         pairs.sort((a, b) => nameSortCounter % 2 === 0 ? b.name.localeCompare(a.name) : a.name.localeCompare(b.name));
+//         arrayUpdate(pairs);
+//         input.value = "";
+//         nameSortCounter++;
+//     }
+// }
+//
+// sortByValueButton.onclick = function (ev) {
+//     if (!valueSortCounter) {
+//         alert("Введіть значення");
+//     } else {
+//         pairs.sort((a, b) => valueSortCounter % 2 === 0 ? b.value.localeCompare(a.value) : a.value.localeCompare(b.value));
+//         arrayUpdate(pairs);
+//         input.value = "";
+//         valueSortCounter++;
+//     }
+// }
+//
+// deleteButton.onclick = function (ev) {
+//     pairs.length = 0;
+//     arrayUpdate([]);
+//     input.value = "";
+//     nameSortCounter = 0;
+//     valueSortCounter = 0;
+// }
+
+let pairs = [];
+
+let input = document.getElementById("input"); // Поле вводу для пари "ім'я = значення"
+let addButton = document.getElementById("add-button"); // Кнопка для додавання пари в список
+let sortByNameButton = document.getElementById("name-sort"); // Кнопка для сортування за ім'ям
+let sortByValueButton = document.getElementById("value-sort"); // Кнопка для сортування за значенням
+let deleteButton = document.getElementById("delete-button"); // Кнопка для видалення всіх пар
+let textUl = document.getElementById("text-ul"); // Список (ul), куди додаються пари
+let nameSortCounter, valueSortCounter; // Лічильники для сортування, щоб чергувати напрямок сортування
+
+// Функція для оновлення списку на сторінці
+let arrayUpdate = function (pairs) {
+    // Спочатку очищаємо поточний список
+    while (textUl.firstChild) {
+        textUl.removeChild(textUl.firstChild);
+    }
+
+    for (let pair of pairs) {
+        let li = document.createElement("li");
+        li.innerText = `${pair.name}=${pair.value}`;
+        textUl.appendChild(li);
+    }
+}
+
+// Обробник події для кнопки "Add" (додавання пари)
+addButton.onclick = function (ev) {
+    let inputData = input.value.trim(); // Отримуємо введене значення і обрізаємо зайві пробіли
+
+    // Перевірка "="
+    let equalsIndex = inputData.indexOf("=");
+    if (equalsIndex > 0 && equalsIndex < inputData.length - 1) {
+        let name = inputData.slice(0, equalsIndex).trim();
+        let value = inputData.slice(equalsIndex + 1).trim();
+
+        // Перевірка символів(букви, цифри)
+        if (/^[a-zA-Z0-9]+$/.test(name) && /^[a-zA-Z0-9]+$/.test(value)) {
+            const inputPair = {
+                name: name,
+                value: value
+            };
+            pairs.push(inputPair);
+            arrayUpdate(pairs);
+            input.value = "";
+            nameSortCounter = 1;
+            valueSortCounter = 1;
+        } else {
+            alert("Ім'я та значення повинні містити лише букви та цифри!");
+            input.value = ""; // Очищаємо поле вводу
+        }
+    } else {
+        alert("Невірний формат! Введіть у форматі: Ім'я = Значення");
+        input.value = "";
+    }
+}
+
+// Обробник події для кнопки "Sort by Name" (сортування за ім'ям)
+sortByNameButton.onclick = function (ev) {
+    if (!nameSortCounter) {
+        alert("Введіть значення");
+    } else {
+        // Сортуємо, змінюючи напрямок сортування при кожному натисканні
+        pairs.sort((a, b) => nameSortCounter % 2 === 0 ? b.name.localeCompare(a.name) : a.name.localeCompare(b.name));
+        arrayUpdate(pairs);
+        input.value = "";
+        nameSortCounter++;
+    }
+}
+
+// Обробник події для кнопки "Sort by Value" (сортування за значенням)
+sortByValueButton.onclick = function (ev) {
+    if (!valueSortCounter) {
+        alert("Введіть значення");
+    } else {
+        // Сортуємо, змінюючи напрямок сортування при кожному натисканні
+        pairs.sort((a, b) => valueSortCounter % 2 === 0 ? b.value.localeCompare(a.value) : a.value.localeCompare(b.value));
+        arrayUpdate(pairs);
+        input.value = "";
+        valueSortCounter++;
+    }
+}
+
+// Обробник події для кнопки "Delete" (видалення всіх пар)
+deleteButton.onclick = function (ev) {
+    pairs.length = 0;
+    arrayUpdate([]);
+    input.value = "";
+    nameSortCounter = 0;
+    valueSortCounter = 0;
+}

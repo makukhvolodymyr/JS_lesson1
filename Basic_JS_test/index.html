@@ -3,35 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>JS test</title>
-<!--    <link rel="stylesheet" href="style.css">-->
-    <style>
-        ul {
-          list-style-type: none;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="form" id = "form">
+<div id = "form">
     <h1>Test</h1>
-    <div id="input-div">
-        <p>Name/Value pair</p>
-        <label><input id = "input" type="text" placeholder="Name=Value"></label>
-    </div>
-    <div id="text-div">
-        <p>Name/Value Pair List</p>
-        <div class = "text-area">
-            <ul id = "text-ul">Список</ul>
+    <div class="main">
+    <div class="content">
+        <div id="input-div">
+            <p>Name/Value pair</p>
+            <label><input id = "input" type="text" placeholder="Name=Value"></label>
+        </div>
+        <div id="text-div">
+            <p>Name/Value Pair List</p>
+            <div id = "text-area">
+                <ul id = "text-ul"></ul>
+            </div>
         </div>
     </div>
-    <div class="buttons" id = "buttons">
+    <div class="buttons">
         <button id = "add-button">Add</button>
-        <div>
-            <button id = "name-sort">Sort by name</button>
-            <button id = "value-sort">Sort by value</button>
-        </div>
+        <button id = "name-sort">Sort by name</button>
+        <button id = "value-sort">Sort by value</button>
         <button id = "delete-button">Delete</button>
     </div>
+</div>
 </div>
 <script src="main.js"></script>
 </body>

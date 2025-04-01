@@ -1,0 +1,118 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #5c87b3;
+    margin: 0;
+    padding: 0;
+    justify-items: center;
+}
+
+#form {
+    border: 2px solid white;
+    border-radius: 10px;
+    width: 50%;
+    padding: 3%;
+    margin-top: 5%;
+    background-color: white;
+}
+
+#input, #text-area {
+    width: 100%;
+    border: 1px solid lightgrey;
+    font-size: 16px;
+    margin-bottom: 5%;
+}
+
+#text-area {
+    height: 40vh;
+}
+
+p {
+    margin-bottom: 0;
+    color: grey;
+    font-size: smaller;
+}
+
+#input::placeholder {
+    color: black;
+}
+
+#add-button, #name-sort, #value-sort, #delete-button {
+    background: linear-gradient(to bottom, white, lightgray);
+    border: 1px solid grey;
+    border-radius: 5px;
+    width: fit-content;
+    margin-bottom: 10%;
+}
+
+#add-button {
+    margin-bottom: 60%;
+}
+
+.main {
+    display: flex;
+    gap: 7%;
+    flex-wrap: wrap;
+}
+
+.content {
+    width: 60%;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4%;
+}
+
+ul {
+    margin-top: 3px;
+    padding-left: 3px;
+    list-style-type: none;
+}
+
+
+/* Для мобільних пристроїв (менше 600px) */
+@media (max-width: 600px) {
+    #form {
+        width: 90%;
+        margin-top: 10%;
+    }
+
+    .main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    .buttons {
+        align-items: center;
+    }
+
+    #add-button {
+        margin-bottom: 10%;
+    }
+}
+
+/* Для планшетів (від 601px до 1024px) */
+@media (max-width: 1024px) and (min-width: 601px) {
+    #form {
+        width: 70%;
+    }
+
+    .main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    .buttons {
+        align-items: center;
+    }
+}
